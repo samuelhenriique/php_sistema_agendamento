@@ -1,113 +1,855 @@
+/* ANIMAÇÕES */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* VARIÁVEIS DE COR */
+:root {
+  --bg-dark: #1a1a1a;
+  --bg-darker: #1a1a1a;
+  --text-light: #e0e0e0;
+  --text-lighter: #ffffff;
+  --primary-color: #6C63FF;
+  --primary-hover: #7b73ff;
+  --border-color: #333;
+}
+/* VARIÁVEIS DE COR */
+
+/* BASE */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    margin: 0;
-    padding: 40px;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #111;
+/* TELA CENTRAL */
+.tela-central {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 63vh;
+  text-align: center;
+  padding-top: 120px;
+  background-color: var(--bg-dark);
+  overflow: hidden;
 }
 
+.tela-central h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--text-lighter);
+  font-weight: bold;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.tela-central p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  max-width: 600px;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.botoes-home {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.btn-agendar,
+.btn-servicos {
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease-out;
+  font-size: 1rem;
+}
+
+.btn-agendar {
+  background-color: var(--primary-color);
+  color: var(--text-lighter);
+}
+
+.btn-agendar:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+}
+
+.btn-servicos {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+
+.btn-servicos:hover {
+  background-color: rgba(108, 99, 255, 0.1);
+  transform: scale(1.05);
+}
+
+/* TELA CENTRAL */
+
+/* SERVIÇOS */
+.servicos {
+  padding: 80px 20px;
+  background-color: var(--bg-darker);
+  text-align: center;
+}
+
+.titulo-servicos {
+  font-size: 2.5rem;
+  color: var(--text-lighter);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cards-servicos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card-servico {
+  background-color: var(--bg-dark);
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 280px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.card-servico:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+}
+
+.icone {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.card-servico h3 {
+  margin: 0 0 10px;
+  color: var(--primary-color);
+}
+
+.card-servico p {
+  color: var(--text-light);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+button.preco {
+  background-color: #333;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: var(--text-light);
+  border-radius: 8px;
+  cursor: not-allowed;
+}
+/* SERVIÇOS */
+
+/* Seção Por Que Escolher */
+.porque-escolher {
+  padding: 60px 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+}
+
+.porque-escolher h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+.diferenciais {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+.diferencial-item {
+  max-width: 300px;
+  flex: 1 1 250px;
+  padding: 0 10px;
+}
+
+.icon-circle {
+  background-color: #6C63FF;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+.icon-circle i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.diferencial-item strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.diferencial-item p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+/* Seção Por Que Escolher */
+
+/* Menu de Agendamento */
 .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 40px 20px;
+  background-color: var(--bg-dark);
 }
 
 .menu a {
-    text-decoration: none;
-    padding: 15px 30px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    color: #333;
-    font-weight: 500;
-    width: 280px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s ease;
+  text-decoration: none;
+  padding: 15px 30px;
+  background-color: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-light);
+  font-weight: 500;
+  width: 280px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
 .menu a:hover {
-    background-color: #e8f0fe;
-    border-color: #4285f4;
-    color: #1a73e8;
-    transform: translateY(-2px);
+  background-color: rgba(108, 99, 255, 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
 }
+/* Menu de Agendamento */
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f9fafb;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
+/* Outros Componentes */
 .container {
-    max-width: 960px;
-    margin: 40px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 960px;
+  margin: 40px auto;
+  background: var(--bg-dark);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
 }
 
 h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--text-lighter);
 }
 
 .filtros {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 input[type="date"], select, button {
-    padding: 8px;
-    font-size: 14px;
+  padding: 8px;
+  font-size: 14px;
+  background-color: var(--bg-darker);
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
 }
 
 .tabela {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .tabela th, .tabela td {
-    padding: 12px;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
 }
 
 .tabela th {
-    background-color: #f2f2f2;
+  background-color: var(--bg-darker);
+  color: var(--text-lighter);
+}
+
+.tabela td {
+  color: var(--text-light);
 }
 
 .btn {
-    padding: 6px 10px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 14px;
-    color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  transition: all 0.2s;
 }
 
 .editar {
-    background-color: #4CAF50;
+  background-color: #4CAF50;
 }
 
 .excluir {
-    background-color: #e53935;
+  background-color: #e53935;
 }
 
 .voltar {
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #007bff;
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: var(--primary-color);
 }
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .container-header {
+    padding: 0 20px;
+  }
+  
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .tela-central h1 {
+    font-size: 2.2rem;
+  }
+  
+  .tela-central p {
+    font-size: 1rem;
+  }
+  
+  .porque-escolher .conteudo {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .porque-escolher .icone {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+  
+  .cards-servicos {
+    gap: 20px;
+  }
+  
+  .card-servico {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .nav-links {
+    gap: 10px;
+  }
+  
+  .nav-links li a {
+    font-size: 0.9rem;
+  }
+  
+  .tela-central {
+    padding-top: 100px;
+    height: auto;
+    padding-bottom: 60px;
+  }
+  
+  .tela-central h1 {
+    font-size: 1.8rem;
+  }
+  
+  .botoes-home {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-agendar, .btn-servicos {
+    width: 100%;
+  }
+}
+
+/* VARIÁVEIS DE COR */
+:root {
+  --bg-dark: #1a1a1a;
+  --bg-darker: #121212;
+  --text-light: #e0e0e0;
+  --text-lighter: #ffffff;
+  --primary-color: #6C63FF;
+  --primary-hover: #7b73ff;
+  --border-color: #333;
+  --success-color: #28a745;
+}
+
+/* BASE DO FORMULÁRIO */
+.agendamento {
+  max-width: 900px;
+  margin: 2rem auto;
+  color: var(--text-light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.agendamento h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-lighter);
+}
+
+.agendamento .subtitulo {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+/* BARRA DE PROGRESSO */
+.progresso {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0 3rem;
+}
+
+.passo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.circulo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.passo-ativo .circulo {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.linha {
+  flex: 1;
+  height: 2px;
+  background-color: var(--border-color);
+  max-width: 80px;
+}
+
+.passo-ativo + .linha {
+  background-color: var(--primary-color);
+}
+
+/* FORMULÁRIO PRINCIPAL */
+.form-agendamento {
+  background-color: var(--bg-darker);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ESTILOS COMUNS DAS ETAPAS */
+.etapa {
+  display: none;
+}
+
+.etapa-ativa {
+  display: block;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.etapa h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-lighter);
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.etapa h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+/* ETAPA 1 - SERVIÇOS */
+.servicos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.servicos-linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.servico-card {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  background-color: var(--bg-dark);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.servico-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Checkbox personalizado */
+.servico-card::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  background-color: var(--bg-dark);
+  transition: all 0.3s ease;
+}
+
+/* Estilo quando selecionado */
+.servico-card input:checked + .servico-conteudo::before {
+  content: '✓';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  border: none;
+}
+
+.servico-card input:focus + .servico-conteudo::before {
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.3);
+}
+
+.servico-card:hover::before {
+  border-color: var(--primary-color);
+}
+
+.servico-conteudo {
+  padding-right: 1.5rem; /* Espaço para o checkbox */
+}
+
+.servico-card input {
+  position: absolute;
+  opacity: 0;
+}
+
+.servico-card input:checked + .servico-conteudo {
+  border-left: 3px solid var(--primary-color);
+  padding-left: 1rem;
+}
+
+.servico-conteudo {
+  height: 100%;
+}
+
+.servico-conteudo h4 {
+  font-size: 1.1rem;
+  color: var(--text-lighter);
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.servico-conteudo p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0 0 1rem 0;
+}
+
+.servico-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duracao {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+}
+
+.preco {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* ETAPA 2 - DADOS */
+.dados-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dados-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.dados-grid input {
+  margin-top: 0.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.dados-grid input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+/* ETAPA 3 - AGENDAMENTO */
+.agendamento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.agendamento-group {
+  margin-bottom: 1.5rem;
+}
+
+.agendamento-group strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-lighter);
+  font-weight: 600;
+}
+
+.input-data,
+.input-horario,
+.input-endereco {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.input-horario {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236C63FF'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1.2rem;
+}
+
+.input-observacoes {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-size: 1rem;
+  resize: vertical;
+}
+
+/* RESUMO FINAL */
+.resumo-final {
+  background-color: var(--bg-dark);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid var(--border-color);
+}
+
+.resumo-final h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-lighter);
+  font-size: 1.1rem;
+}
+
+.resumo-linha {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.resumo-linha.total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 1.1rem;
+}
+
+.resumo-linha.total strong {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+/* BOTÕES */
+.botoes-navegacao,
+.botoes-finalizar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Garantir que os botões de navegação mantenham o estilo correto */
+.btn-avancar, .btn-finalizar {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.btn-avancar:hover, .btn-finalizar:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-finalizar {
+  background-color: var(--success-color);
+}
+
+.btn-finalizar:hover {
+  background-color: #218838;
+}
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .servicos-linha,
+  .agendamento-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .botoes-navegacao,
+  .botoes-finalizar {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .progresso {
+    gap: 0.3rem;
+  }
+  
+  .passo {
+    min-width: 50px;
+    font-size: 0.8rem;
+  }
+  
+  .circulo {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .linha {
+    max-width: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-agendamento {
+    padding: 1.5rem;
+  }
+  
+  .etapa h3 {
+    font-size: 1.3rem;
+  }
+}
+
 

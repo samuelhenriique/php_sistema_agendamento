@@ -1,5 +1,5 @@
 <?php
-require_once '../config/db.php';
+require_once(__DIR__ . '/../config/db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = trim($_POST['nome_cliente']);
@@ -110,5 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <button type="submit">Agendar</button>
+
+        <a href="../index.php" class="voltar">← Voltar</a>
     </form>
 </div>

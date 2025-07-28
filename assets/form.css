@@ -147,3 +147,10 @@ button:hover {
     grid-column: 1 / -1;
   }
 }
+
+.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
