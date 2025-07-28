@@ -381,3 +381,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+<!-- Comentário de teste para novo commit -->
