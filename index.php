@@ -4,25 +4,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lavacar - Sistema de Agendamento</title>
+  <title>Sistema de Agendamento</title>
   <link rel="stylesheet" href="assets/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
   <!-- Tela Principal -->
   <main class="tela-central">
-
-    <h1>Bem-vindo à FR Lavação!</h1>
-
+    <h1>Bem-vindo à <span class="texto-animado">FR Lavação</span>!</h1>
     <p>Sua plataforma prática para agendar a lavagem do seu carro com rapidez e conforto.</p>
-
     <div class="botoes-home">
-      <a href="#agendar" class="btn-agendar">Agendar Agora</a>
-      <a href="#servicos" class="btn-servicos">Conheça os Serviços</a>
-    </div>
+  <a href="#agendar" class="btn-agendar">
+    <i class="fa-regular fa-calendar"></i> Agendar Agora
+  </a>
+    <a href="#servicos" class="btn-servicos">
+      Conheça os Serviços <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
 
   </main>
   <!-- Tela Principal -->
@@ -316,6 +318,13 @@
               <option value="08:00">08:00</option>
               <option value="09:00">09:00</option>
               <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
               <!-- Mais horários podem ser adicionados aqui -->
             </select>
           </label>
@@ -352,10 +361,12 @@
           <span>Serviços:</span>
           <span id="resumo-servicos">1 selecionado(s)</span>
         </div>
+
         <div class="resumo-linha">
           <span>Duração estimada:</span>
           <span id="resumo-duracao">30 minutos</span>
         </div>
+
         <div class="resumo-linha total">
           <span>Total:</span>
           <strong id="resumo-total">R$ 30,00</strong>
@@ -366,6 +377,7 @@
         <button type="button" class="btn-voltar">Anterior</button>
         <button type="submit" class="btn-finalizar">Finalizar Agendamento</button>
       </div>
+
     </div>
   </form>
 </section>
@@ -377,6 +389,40 @@
     <a href="admin/cadastrar_servico.php">➕ Cadastrar Serviço</a>
     <a href="admin/listar_servicos.php">🛠️ Gerenciar Serviços</a>
   </div>
+
+
+    <!-- Footer-->  
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3><i class="fa-solid fa-car-side"></i> FR Lavação</h3>
+      <p>Cuidando do seu veículo com excelência e dedicação há mais de 10 anos.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p><i class="fa-solid fa-phone"></i> (11) 99999-9999</p>
+      <p><i class="fa-solid fa-envelope"></i> contato@frlavacao.com</p>
+      <p><i class="fa-solid fa-location-dot"></i> Rua da Lavação, 123</p>
+    </div>
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <p>Lavagem Simples</p>
+      <p>Lavagem Completa</p>
+      <p>Enceramento</p>
+      <p>Higienização</p>
+    </div>
+    <div class="footer-col">
+      <h4>Horários</h4>
+      <p>Segunda - Sexta: 8h às 18h</p>
+      <p>Sábado: 8h às 16h</p>
+      <p>Domingo: Fechado</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 FR Lavação. Todos os direitos reservados.</p>
+  </div>
+</footer>
+      <!-- Footer-->  
 
   <script src="script.js"></script>
 </body>

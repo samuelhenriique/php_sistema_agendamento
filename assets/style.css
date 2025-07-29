@@ -63,6 +63,28 @@ body {
   animation-delay: 0.2s;
 }
 
+.texto-animado {
+  background: linear-gradient(270deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animacaoCor 6s ease infinite;
+  font-weight: bold;
+}
+
+@keyframes animacaoCor {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 .botoes-home {
   display: flex;
   gap: 15px;
@@ -103,12 +125,13 @@ body {
   transform: scale(1.05);
 }
 
+
 /* TELA CENTRAL */
 
 /* SERVIÇOS */
 .servicos {
   padding: 80px 20px;
-  background-color: var(--bg-darker);
+  background-color: var(--bg-dark);
   text-align: center;
 }
 
@@ -852,5 +875,47 @@ input[type="date"], select, button {
   }
 }
 
+.footer {
+  background-color: #0f0f0f;
+  color: #cbd5e1;
+  padding: 40px 20px 20px;
+  font-size: 14px;
+}
 
-<!-- Comentário de teste para novo commit -->
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.footer h3,
+.footer h4 {
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin: 6px 0;
+}
+
+.footer i {
+  margin-right: 6px;
+  color: #7b73ff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #7b73ff;
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #94a3b8;
+}
