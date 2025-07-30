@@ -2,51 +2,57 @@
 require_once(__DIR__ . '/../config/db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = trim($_POST['nome_cliente']);
-    $telefone = trim($_POST['telefone']);
-    $data = $_POST['data'];
-    $horario = $_POST['horario'];
-    $id_servico = $_POST['id_servico'];
+    $nome = $_POST['nome_cliente'] ?? '';
+    $telefone = $_POST['telefone'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $modelo = $_POST['modelo'] ?? '';
+    $placa = $_POST['placa'] ?? '';
+    $data = $_POST['data'] ?? '';
+    $horario = $_POST['horario'] ?? '';
+    $endereco = $_POST['endereco'] ?? '';
+    $observacoes = $_POST['observacoes'] ?? '';
 
-    $dt = DateTime::createFromFormat('Y-m-d', $data);
-    if (!$dt || $dt->format('Y-m-d') !== $data) {
-        die("<div class='msg error'>⚠️ Data inválida!</div>");
-    }
-
-    // Validação: horário entre 08:00 e 18:00 com passo de 40 minutos
-    $horarioPermitido = false;
-    $inicio = strtotime('08:00');
-    $fim = strtotime('18:00');
-    $horarioDigitado = strtotime($horario);
-
-    while ($inicio <= $fim) {
-        if ($horarioDigitado === $inicio) {
-            $horarioPermitido = true;
-            break;
+    // Receber múltiplos serviços (checkbox)
+    $servicosSelecionados = isset($_POST['servicos']) ? $_POST['servicos'] : [];
+    $nomesServicos = [];
+    if (!empty($servicosSelecionados) && is_array($servicosSelecionados)) {
+        // Buscar os nomes dos serviços selecionados
+        $placeholders = implode(',', array_fill(0, count($servicosSelecionados), '?'));
+        $stmtServicos = $pdo->prepare("SELECT nome FROM servicos WHERE id IN ($placeholders)");
+        foreach ($servicosSelecionados as $k => $v) {
+            $servicosSelecionados[$k] = (int)$v;
         }
-        $inicio = strtotime('+40 minutes', $inicio);
+        $stmtServicos->execute($servicosSelecionados);
+        $nomes = $stmtServicos->fetchAll(PDO::FETCH_COLUMN);
+        if ($nomes) {
+            $nomesServicos = $nomes;
+        }
     }
-
-    if (!$horarioPermitido) {
-        die("<div class='msg error'>⛔ Horário inválido! Use horários entre 08:00 e 18:00 com intervalos de 40 minutos.</div>");
-    }
+    $nome_servico = implode(', ', $nomesServicos);
 
     try {
-        $sql = "INSERT INTO agendamentos (nome_cliente, telefone, data, horario, id_servico)
-                VALUES (:nome_cliente, :telefone, :data, :horario, :id_servico)";
+        $sql = "INSERT INTO agendamentos (nome_cliente, telefone, email, modelo, placa, data, horario, endereco, observacoes, servicos) VALUES (:nome_cliente, :telefone, :email, :modelo, :placa, :data, :horario, :endereco, :observacoes, :servicos)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':nome_cliente' => $nome,
-            ':telefone'     => $telefone,
-            ':data'         => $data,
-            ':horario'      => $horario,
-            ':id_servico'   => $id_servico
+            ':telefone' => $telefone,
+            ':email' => $email,
+            ':modelo' => $modelo,
+            ':placa' => $placa,
+            ':data' => $data,
+            ':horario' => $horario,
+            ':endereco' => $endereco,
+            ':observacoes' => $observacoes,
+            ':servicos' => $nome_servico
         ]);
-
-        echo "<div class='msg success'>✅ Agendamento realizado com sucesso!</div>";
+        // Exibe pop-up de sucesso
+        echo '<script>alert("Agendamento realizado com sucesso!"); window.location.href = "../index.php";</script>';
+        exit;
     } catch (PDOException $e) {
-        echo "<div class='msg error'>Erro ao agendar: " . $e->getMessage() . "</div>";
+        echo '<div class="msg error">Erro ao salvar agendamento: ' . htmlspecialchars($e->getMessage()) . '</div>';
+        echo '<a href="../index.php">Voltar</a>';
     }
+    exit;
 }
 ?>
 

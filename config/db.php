@@ -1,7 +1,7 @@
 <?php
 $host = '127.0.0.1';
-$port = 3307;  // altere se necessário
-$db   = 'agendamento_db';   // nome do banco de dados
+$port = 3307; 
+$db   = 'agendamento_db';
 $user = 'root';
 $pass = '123456';
 $charset = 'utf8mb4';

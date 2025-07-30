@@ -13,19 +13,38 @@
 </head>
 
 <body>
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="logo"><i class="fa-solid fa-car-side"></i> FR Lavação</a>
+      <nav class="nav" id="nav-menu">
+        <a href="#agendar" class="nav-link">Agendar</a>
+        <a href="#servicos" class="nav-link">Serviços</a>
+        <a href="#diferenciais" class="nav-link">Diferenciais</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </header>
+  <!-- Header -->
   <!-- Tela Principal -->
   <main class="tela-central">
     <h1>Bem-vindo à <span class="texto-animado">FR Lavação</span>!</h1>
     <p>Sua plataforma prática para agendar a lavagem do seu carro com rapidez e conforto.</p>
     <div class="botoes-home">
-  <a href="#agendar" class="btn-agendar">
-    <i class="fa-regular fa-calendar"></i> Agendar Agora
-  </a>
-    <a href="#servicos" class="btn-servicos">
-      Conheça os Serviços <i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
-
+      <a href="#agendar" class="btn-agendar">
+        <i class="fa-regular fa-calendar"></i> Agendar Agora
+      </a>
+      <a href="#servicos" class="btn-servicos">
+        Conheça os Serviços <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <button class="btn-seta-scroll" aria-label="Ir para agendamento">
+      <span class="seta-animada"><i class="fa-solid fa-angle-down"></i></span>
+    </button>
   </main>
   <!-- Tela Principal -->
 
@@ -81,7 +100,7 @@
     <!-- Seção de Serviços -->
 
   <!-- Seção Por Que Escolher -->
-<section class="porque-escolher">
+<section class="porque-escolher" id="diferenciais">
 
   <h2>Nossos Diferenciais</h2>
 
@@ -143,7 +162,7 @@
   </div>
 
   <!-- Formulário de Agendamento -->
-  <form class="form-agendamento">
+  <form class="form-agendamento" action="cliente/agendar.php" method="POST">
     <!-- Etapa 1 - Serviços -->
     <div class="etapa etapa-ativa" data-step="1">
       <h3 class="titulo-servicos">Escolha os Serviços</h3>
@@ -153,7 +172,7 @@
         <div class="servicos-linha">
           <!-- Lavagem Simples -->
           <label class="servico-card">
-            <input type="checkbox" name="servicos" value="30" data-duracao="30">
+            <input type="checkbox" name="servicos[]" value="1" data-duracao="30" data-preco="30.00">
             <div class="servico-conteudo">
               <h4>Lavagem Simples</h4>
               <p>Lavagem externa com jato de pressão</p>
@@ -166,7 +185,7 @@
 
           <!-- Lavagem Completa -->
           <label class="servico-card">
-            <input type="checkbox" name="servicos" value="50" data-duracao="60">
+            <input type="checkbox" name="servicos[]" value="2" data-duracao="60" data-preco="50.00">
             <div class="servico-conteudo">
               <h4>Lavagem Completa</h4>
               <p>Interior e exterior completo</p>
@@ -182,7 +201,7 @@
         <div class="servicos-linha">
           <!-- Higienização Interna -->
           <label class="servico-card">
-            <input type="checkbox" name="servicos" value="80" data-duracao="90">
+            <input type="checkbox" name="servicos[]" value="3" data-duracao="90" data-preco="80.00">
             <div class="servico-conteudo">
               <h4>Higienização Interna</h4>
               <p>Limpeza profunda dos estofados</p>
@@ -195,7 +214,7 @@
 
           <!-- Limpeza de Rodas -->
           <label class="servico-card">
-            <input type="checkbox" name="servicos" value="25" data-duracao="20">
+            <input type="checkbox" name="servicos[]" value="4" data-duracao="20" data-preco="25.00">
             <div class="servico-conteudo">
               <h4>Limpeza de Rodas</h4>
               <p>Remoção de sujeira das rodas</p>
@@ -211,7 +230,7 @@
         <div class="servicos-linha">
           <!-- Enceramento -->
           <label class="servico-card">
-            <input type="checkbox" name="servicos" value="60" data-duracao="45">
+            <input type="checkbox" name="servicos[]" value="5" data-duracao="45" data-preco="60.00">
             <div class="servico-conteudo">
               <h4>Enceramento</h4>
               <p>Proteção e brilho duradouro</p>
@@ -224,7 +243,7 @@
 
           <!-- Lavagem de Motor -->
           <label class="servico-card">
-            <input type="checkbox" name="servicos" value="40" data-duracao="30">
+            <input type="checkbox" name="servicos[]" value="6" data-duracao="30" data-preco="40.00">
             <div class="servico-conteudo">
               <h4>Lavagem de Motor</h4>
               <p>Limpeza do compartimento do motor</p>
@@ -267,7 +286,7 @@
       <div class="dados-grid">
         <label>
           Nome Completo *
-          <input type="text" name="nome" placeholder="Seu nome completo" required />
+          <input type="text" name="nome_cliente" placeholder="Seu nome completo" required />
         </label>
 
         <label>
@@ -398,7 +417,7 @@
       <h3><i class="fa-solid fa-car-side"></i> FR Lavação</h3>
       <p>Cuidando do seu veículo com excelência e dedicação há mais de 10 anos.</p>
     </div>
-    <div class="footer-col">
+    <div class="footer-col" id="contato">
       <h4>Contato</h4>
       <p><i class="fa-solid fa-phone"></i> (11) 99999-9999</p>
       <p><i class="fa-solid fa-envelope"></i> contato@frlavacao.com</p>
@@ -425,6 +444,35 @@
       <!-- Footer-->  
 
   <script src="script.js"></script>
+  <script>
+    // Menu mobile toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('nav-active');
+      menuToggle.classList.toggle('active');
+    });
+    // Fechar menu ao clicar em link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('nav-active');
+        menuToggle.classList.remove('active');
+      });
+    });
+    // Scroll suave para âncoras
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+          e.preventDefault();
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
 <!-- Comentário de teste para novo commit -->

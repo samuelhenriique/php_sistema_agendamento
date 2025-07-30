@@ -1,3 +1,5 @@
+
+
 /* ANIMAÇÕES */
 @keyframes fadeInUp {
   0% {
@@ -30,6 +32,132 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-light);
   line-height: 1.6;
+}
+
+body {
+  padding-top: 64px;
+}
+
+
+/* HEADER MODERNO E RESPONSIVO */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: var(--cor-bg, #141414);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.3s;
+}
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+  height: 64px;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-primaria, #7b73ff);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--cor-primaria, #7b73ff);
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+@media (max-width: 900px) {
+  .header-container {
+    padding: 0.5rem 1rem;
+  }
+  .nav {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-container {
+    height: 56px;
+  }
+  .nav {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    background: var(--cor-bg, #181c24);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    z-index: 999;
+  }
+  .nav.nav-active {
+    max-height: 300px;
+    padding: 0.5rem 0;
+  }
+  .nav-link {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #222;
+    font-size: 1.1rem;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-container {
+    padding: 0.5rem 0.5rem;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+  }
+}
+
+body {
+  padding-top: 64px;
+}
+@media (max-width: 700px) {
+  body {
+    padding-top: 56px;
+  }
 }
 
 /* TELA CENTRAL */
@@ -127,6 +255,34 @@ body {
 
 
 /* TELA CENTRAL */
+
+/* Botão seta para scroll */
+.btn-seta-scroll {
+  display: flex;
+  margin: 42px auto 0 auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.btn-seta-scroll:hover .seta-animada {
+  transform: translateY(8px) scale(1.2);
+  color: var(--text-light);
+}
+.seta-animada {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: transform 0.4s, color 1.3s;
+  animation: setaBounce 0.7s infinite alternate;
+  display: inline-block;
+}
+@keyframes setaBounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(12px); }
+}
 
 /* SERVIÇOS */
 .servicos {
@@ -586,36 +742,53 @@ input[type="date"], select, button {
   height: 0;
 }
 
-/* Checkbox personalizado */
+/* Checkbox customizado perfeitamente centralizado no canto superior direito */
 .servico-card::before {
   content: '';
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 20px;
-  height: 20px;
+  top: 18px;
+  right: 18px;
+  width: 22px;
+  height: 22px;
   border: 2px solid var(--border-color);
   border-radius: 50%;
   background-color: var(--bg-dark);
-  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(108,99,255,0.06);
+  transition: border-color 0.25s, background-color 0.25s, box-shadow 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-size: 1rem;
 }
 
-/* Estilo quando selecionado */
+/* Estilo quando selecionado com animação e alinhamento centralizado */
 .servico-card input:checked + .servico-conteudo::before {
   content: '✓';
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 20px;
-  height: 20px;
+  top: 18px;
+  right: 18px;
+  width: 22px;
+  height: 22px;
   background-color: var(--primary-color);
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 1.15rem;
   border: none;
+  box-shadow: 0 4px 16px rgba(108,99,255,0.18);
+  animation: checkBounce 0.32s cubic-bezier(0.4,0,0.2,1);
+  transition: background-color 0.25s, box-shadow 0.25s;
+  z-index: 3;
+}
+
+@keyframes checkBounce {
+  0% { transform: scale(0.7); opacity: 0.5; }
+  60% { transform: scale(1.15); opacity: 1; }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1); }
 }
 
 .servico-card input:focus + .servico-conteudo::before {
@@ -635,9 +808,25 @@ input[type="date"], select, button {
   opacity: 0;
 }
 
+
 .servico-card input:checked + .servico-conteudo {
   border-left: 3px solid var(--primary-color);
   padding-left: 1rem;
+}
+
+/* Animação ao selecionar serviço */
+.servico-card {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s;
+}
+.servico-card.animar-selecao {
+  animation: bounceSelect 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes bounceSelect {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.08); }
+  60% { transform: scale(0.97); }
+  80% { transform: scale(1.03); }
+  100% { transform: scale(1); }
 }
 
 .servico-conteudo {

@@ -9,7 +9,7 @@ Este é um sistema simples de agendamento de serviços, desenvolvido em **PHP**,
 - 🔍 Filtro por serviço, status e nome do cliente.
 - ✏️ Edição e exclusão de agendamentos.
 - ✅ Status do agendamento: Pendente, Confirmado, Cancelado.
-- ⏰ Validação de horários disponíveis com intervalo de 40 minutos (das 08:00 às 18:00).
+- ⏰ Validação de horários disponíveis com intervalo de 60 minutos (das 08:00 às 18:00).
 - 📱 Layout responsivo para celular e desktop.
 
 ## 💻 Tecnologias Utilizadas
@@ -21,22 +21,33 @@ Este é um sistema simples de agendamento de serviços, desenvolvido em **PHP**,
 - Bootstrap (para o layout)
 - Font Awesome (ícones)
 
+
 ## 📦 Estrutura do Projeto
 
 📁 agendamento/
-├── 📁 css/
-│ └── style.css
-├── 📁 js/
-│ └── script.js
+├── 📁 admin/
+│   ├── cadastrar_servico.php
+│   ├── editar_agendamento.php
+│   ├── excluir_agendamento.php
+│   ├── listar_agendamentos.php
+│   └── painel.php
+├── 📁 assets/
+│   ├── agendamentos.css
+│   ├── form.css
+│   └── style.css
+├── 📁 cliente/
+│   ├── agendar.php
+│   └── confirmacao.php
+├── 📁 config/
+│   └── db.php
 ├── 📁 includes/
-│ ├── conexao.php
-│ └── funcoes.php
-├── 📁 pages/
-│ └── listar_agendamentos.php
-├── agendar.php
+│   ├── footer.php
+│   └── header.php
+├── 📁 servicos/
+│   └── cadastrar.php
+├── banco.sql
 ├── index.php
-├── editar.php
-├── excluir.php
+├── script.js
 └── README.md
 
 
@@ -48,19 +59,23 @@ Este é um sistema simples de agendamento de serviços, desenvolvido em **PHP**,
    
 2. Importe o banco de dados banco.sql no seu MySQL (caso exista).
 
-3.Configure a conexão com o banco em includes/conexao.php:
-$conn = new mysqli('localhost', 'usuario', 'senha', 'banco_de_dados');
+
+3. Configure a conexão com o banco em `config/db.php`:
+```php
+$conn = new PDO('mysql:host=localhost;dbname=agendamento_db', 'usuario', 'senha');
+```
+
 
 4. Rode o projeto com um servidor local (ex: XAMPP, WAMP ou PHP embutido):
+```bash
 php -S localhost:8000
+```
 
-📌 Melhorias Futuras
-Login e autenticação de administradores
 
-Dashboard com estatísticas
-
-Confirmação automática por e-mail ou WhatsApp
-
-Exportação para Excel/PDF
+## 📌 Melhorias Futuras
+- Login e autenticação de administradores
+- Dashboard com estatísticas
+- Confirmação automática por e-mail ou WhatsApp
+- Exportação para Excel/PDF
 
 
