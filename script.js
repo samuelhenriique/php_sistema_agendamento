@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Função para atualizar resumo em todas as etapas
+  // atualizar resumo em todas as etapas
   function atualizarResumo() {
     let servicosSelecionados = 0;
     let duracaoTotal = 0;
@@ -190,6 +190,8 @@ document.addEventListener('DOMContentLoaded', function() {
     checkboxes.forEach(checkbox => {
       if (checkbox.checked) {
         servicosSelecionados++;
+
+
         // Soma duração
         const duracao = parseInt(checkbox.dataset.duracao);
         if (!isNaN(duracao)) duracaoTotal += duracao;
@@ -199,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
           valor = parseFloat(checkbox.dataset.preco.replace(',', '.'));
         }
         if (!isNaN(valor)) valorTotal += valor;
-        // Obtém o nome do serviço do elemento h4 dentro do card
+        // nome do serviço do elemento h4 dentro do card
         const nomeServico = checkbox.closest('.servico-card').querySelector('h4').textContent;
         servicosNomes.push(nomeServico);
       }

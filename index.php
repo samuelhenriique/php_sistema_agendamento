@@ -18,6 +18,7 @@
   <header class="header">
     <div class="header-container">
       <a href="#" class="logo"><i class="fa-solid fa-car-side"></i> FR Lavação</a>
+      
       <nav class="nav" id="nav-menu">
         <a href="#agendar" class="nav-link">Agendar</a>
         <a href="#servicos" class="nav-link">Serviços</a>
